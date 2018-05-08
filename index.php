@@ -1,0 +1,111 @@
+<html>
+<head>
+	<title>Room Service</title>
+	<link href="main.css" rel="stylesheet">
+    <script>
+	  function turnOnOffRed(onOff){
+		var xmlhttp = new XMLHttpRequest();  
+		xmlhttp.open("POST","http://playground.devicehive.com/api/rest"+"/device/"+"room-1"+"/command", true);
+		xmlhttp.setRequestHeader("Authorization", "Bearer " + "m20UgUzboYDnQfTcEZQhgdilYxiROX9470gUQbULeuc=");
+        xmlhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+		
+		var myjson = {};
+		myjson['command'] = 'gpio/write';
+		myjson['parameters'] = {5:onOff};
+		xmlhttp.send(JSON.stringify(myjson));
+		}
+		
+			  function turnOnOffGreen(onOff){
+		var xmlhttp = new XMLHttpRequest();  
+		xmlhttp.open("POST","http://playground.devicehive.com/api/rest"+"/device/"+"room-1"+"/command", true);
+		xmlhttp.setRequestHeader("Authorization", "Bearer " + "m20UgUzboYDnQfTcEZQhgdilYxiROX9470gUQbULeuc=");
+        xmlhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+		
+		var myjson = {};
+		myjson['command'] = 'gpio/write';
+		myjson['parameters'] = {4:onOff};
+		xmlhttp.send(JSON.stringify(myjson));
+		}
+		
+	    function Check(){
+		var xmlhttp = new XMLHttpRequest();  
+		xmlhttp.open("POST","http://playground.devicehive.com/api/rest"+"/device/"+"room-1"+"/command", true);
+		xmlhttp.setRequestHeader("Authorization", "Bearer " + "m20UgUzboYDnQfTcEZQhgdilYxiROX9470gUQbULeuc=");
+        xmlhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+		
+		var myjson = {};
+		myjson['command'] = 'gpio/read';
+		xmlhttp.send(JSON.stringify(myjson));
+		}
+	</script>
+	
+<script>
+var i = 2;
+function ff(){
+  document.getElementById('form_inner').innerHTML = document.getElementById('form_inner').innerHTML +
+"<input type='time' id='form_inner' name='time_" + i + "_1' /> - <input type='time' id='form_inner' name='time_" + i + "_2' /><select id='statusbox' name='StatusBox_" + i + "'><option disabled selected>*Status*</option><option value='Busy'>Busy</option><option value='Free'>Free</option></select><br />";
+i++;
+}
+</script>
+
+</head>
+<body>
+ <div id="content">
+  <p style="text-align: center;font-size: 50px;font-weight: bold;margin: 10px 0px 0px 0px;background-color: #EAEAFD;border-radius: 20px 20px 0px 0px;">Room Service (Test mode)</p>
+	<div id="roomtime">
+		<p id="captRT">Room Time (input)</p>
+			<p id="form">
+				<form name='form' id='form' action='timer.php' method='post' target="_blank">
+					<span name='form_inner' id='form_inner'>
+						<input type='time'  id='form_inner' name='time_1_1' /> - <input type='time'  id='form_inner' name='time_1_2' />
+						<select id='statusbox' name='StatusBox_1'>
+						    <option disabled selected>*Status*</option>
+							<option value='Busy'>Busy</option>
+							<option value='Free'>Free</option>
+						</select>
+						<br />
+					</span>
+					<input type='button' class=but value='Add Input Form' onclick="ff()">
+					<input name='frm_sbm' class=but type='submit' value='Submit Time' />
+				</form>
+			</p>
+	</div>
+	<div id="testpanel">
+		<p id="captTP">Test Panel</p>
+			<p id="form">
+					<table>
+						<tr><td><img src='images/redlight.png' style="height: 30px;width: 30px;"> Red Light (GPIO 4): </td>
+							<td>
+								<input type=button class=but value='Power ON'  onclick='turnOnOffRed("1")'>
+								<input type=button class=but value='Power OFF' onclick='turnOnOffRed("0")'>
+							</td>
+						</tr>
+						<tr><td><img src='images/greenlight.png' style="height: 30px;width: 30px;"> Green Light (GPIO 5): </td>
+							<td>
+								<input type=button class=but value='Power ON'  onclick='turnOnOffGreen(1)'>
+								<input type=button class=but value='Power OFF' onclick='turnOnOffGreen(0)'>
+							</td>
+						</tr>
+						<tr><td>Test Message(Display):<br /><img src="images/display.JPG" style="height: 90px"> </td>
+							<td>
+								<textarea name=comment cols=15 rows=2></textarea>
+								<br />
+								<input type=submit class=but value=Send>
+								<input type=reset class=but value=Reset>
+							</td>
+						</tr>
+						<tr>
+							<td>Read Pins: </td>
+							<td>
+								<input type=button class=but value='Check PINS!' onclick="Check()">
+							</td>
+						</tr>
+					</table>
+			</p>
+	</div>
+	<div id="footer">
+		<p style="text-decoration: overline;font-style: oblique;">Created by Sergey Sholokhov</p>
+	</div>
+ </div>
+ </body>
+</html>

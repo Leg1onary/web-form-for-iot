@@ -1,0 +1,80 @@
+body{
+	background: url(images/logo_devicehive.png) left no-repeat;
+	margin: 0px;
+	}
+#content{
+	margin: 0px auto 0px auto;
+	width: 904px;
+	height: 98%;
+	background-color: white;
+	}	
+#timer_content{
+	margin: 0px auto 0px auto;
+	width: 904px;
+	height: 98%;
+	background-color: white;
+	}
+#roomtime{
+	width: 450px;
+	height: 80%;
+	background-color: #C8CED8;
+	display: inline-block;
+}
+#testpanel{
+	float: right;
+	width: 450px;
+	height: 80%;
+	background-color: #C8CED8;
+	display: inline-block;
+}
+#captTP{
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	background: #576CA7 url(images/switch_off.png) 75% no-repeat;
+	margin: 0px;
+	padding: 10px;
+}
+#captRT{
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	background: #576CA7 url(images/clock24.png) 2% -7px no-repeat;
+	margin: 0px;
+	padding: 10px
+}
+#form{
+	margin: 10px;
+	}
+#footer{
+	background: #003858;
+	border-radius: 0px 0px 20px 20px;
+	padding: 5px 0px 1px 15px;
+	margin: 0px;
+	width: 889px;
+	}
+td{
+	border: 1px solid black;
+	font-size: 20px;
+	padding: 5px;
+  }
+.but{
+	background:-moz-lineear-gradient(#00BBD6,#EBFFFF);
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+	filter: progid:DXImageTranform.Microoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+	padding: 3px 7px;
+	color: #333;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #666;
+}
+
+#statusbox {
+	margin: 0px 0px 10px 30px;
+    font-size: 16px;
+}
+
+#form_inner {
+	font-size: 16px;
+}
